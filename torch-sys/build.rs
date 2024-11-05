@@ -246,9 +246,9 @@ impl SystemInfo {
                     version_check(&version)?
                 }
             }
-            libtorch_include_dirs.push(includes.clone());
-            libtorch_include_dirs.push(includes.join("torch/csrc/api/include"));
-            libtorch_lib_dir = Some(lib);
+            libtorch_include_dirs.push(includes.join("include"));
+            libtorch_include_dirs.push(includes.join("include/torch/csrc/api/include"));
+            libtorch_lib_dir = Some(lib.join("lib"));
             env_var_rerun("LIBTORCH_CXX11_ABI").unwrap_or_else(|_| "1".to_owned())
         };
         let libtorch_lib_dir = libtorch_lib_dir.expect("no libtorch lib dir found");
