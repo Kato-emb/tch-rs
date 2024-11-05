@@ -203,7 +203,9 @@ impl SystemInfo {
             }
         }
         let mut libtorch_lib_dir = None;
-        let cxx11_abi = if env_var_rerun("LIBTORCH_USE_PYTORCH").is_ok() {
+        let cxx11_abi = if false
+        //env_var_rerun("LIBTORCH_USE_PYTORCH").is_ok()
+        {
             let output = std::process::Command::new(&python_interpreter)
                 .arg("-c")
                 .arg(PYTHON_PRINT_PYTORCH_DETAILS)
